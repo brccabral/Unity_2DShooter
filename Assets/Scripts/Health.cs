@@ -1,10 +1,15 @@
 public class Health
 {
-    public float healthPoints { get; private set; }
+    private float healthPoints;
 
     public Health(float value)
     {
         healthPoints = value;
+    }
+
+    public float GetHealthPoints()
+    {
+        return healthPoints;
     }
 
     public void IncreaseHealth(float amount)

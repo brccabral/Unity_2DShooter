@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab010c675da2af4eb39fad581219bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
+  moveDirection: {x: 0, y: 0}
   moveSpeed: 0
   isDead: 0
+  rb: {fileID: 2113592115932821607}
 --- !u!50 &2113592115932821607
 Rigidbody2D:
   serializedVersion: 5

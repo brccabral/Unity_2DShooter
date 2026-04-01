@@ -2,18 +2,27 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public float moveSpeed;
+    public Vector2 moveDirection;
+    [SerializeField] private float moveSpeed;
     public bool isDead;
+
+    public Rigidbody2D rb;
     public Health health;
 
-    private void Start()
+    protected virtual void Start()
     {
         health = new Health(100);
-        Debug.Log(health.healthPoints);
+        Debug.Log(health.GetHealthPoints());
     }
 
-    public void Move()
+    protected void FixedUpdate()
     {
+        Move();
+    }
+
+    private void Move()
+    {
+        rb.AddForce(moveDirection * (moveSpeed * Time.fixedDeltaTime));
     }
 
     public void Dash()
