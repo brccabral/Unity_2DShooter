@@ -188,9 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317ba549cf168864cbc66d0f2d58e904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  moveDirection: {x: 0, y: 0}
-  moveSpeed: 1500
-  isDead: 0
+  moveSpeed: 700
   rb: {fileID: 4766052134872707467}
 --- !u!50 &4766052134872707467
 Rigidbody2D:
