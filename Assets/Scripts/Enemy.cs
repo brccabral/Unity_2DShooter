@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    public Transform playerTargetTransform;
+    private Transform playerTargetTransform;
 
     protected override void Start()
     {
@@ -13,5 +13,6 @@ public class Enemy : Character
     public virtual void Update()
     {
         moveDirection = (playerTargetTransform.position - transform.position).normalized;
+        transform.up = moveDirection;
     }
 }
