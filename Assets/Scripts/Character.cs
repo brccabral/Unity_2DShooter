@@ -12,7 +12,7 @@ public abstract class Character : MonoBehaviour
     protected virtual void Start()
     {
         health = new Health(100);
-        Debug.Log(health.GetHealthPoints());
+        Debug.Log($"Character Health: {health.GetHealthPoints()}");
     }
 
     protected void FixedUpdate()
@@ -25,7 +25,12 @@ public abstract class Character : MonoBehaviour
         rb.AddForce(moveDirection * (moveSpeed * Time.fixedDeltaTime));
     }
 
-    public void Attack()
+    protected void Rotate(Vector3 rotationTarget)
+    {
+        transform.up = rotationTarget - transform.position;
+    }
+
+    protected virtual void Attack()
     {
     }
 }
