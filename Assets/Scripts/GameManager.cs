@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Character randomCharacter;
     [SerializeField] private Player mainPlayer;
-    [SerializeField] private Enemy randomEnemy;
+
+    [SerializeField] private List<Enemy> allSpawnedEnemies;
+    [SerializeField] private Enemy[] possibleEnemyPrefabs;
 
     public void Start()
     {
@@ -12,5 +14,15 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Player has Dash");
         }
+
+        InvokeRepeating(nameof(SpawnRandomEnemy), 2f, 3f);
+    }
+
+    private void SpawnRandomEnemy()
+    {
+        var amountOfIndexes = possibleEnemyPrefabs.Length;
+        var randomIndex = Random.Range(0, amountOfIndexes);
+        var enemy = Instantiate(possibleEnemyPrefabs[randomIndex]);
+        allSpawnedEnemies.Add(enemy);
     }
 }
