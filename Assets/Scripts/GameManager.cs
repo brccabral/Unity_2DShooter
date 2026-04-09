@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<Enemy> allSpawnedEnemies;
     [SerializeField] private Enemy[] possibleEnemyPrefabs;
+    [SerializeField] private Transform[] possibleSpawnPoints;
 
     public void Start()
     {
@@ -15,19 +17,34 @@ public class GameManager : MonoBehaviour
             Debug.Log("Player has Dash");
         }
 
-        InvokeRepeating(nameof(SpawnRandomEnemy), 2f, 3f);
+        StartCoroutine(SpawnRandomEnemy());
     }
 
-    private void SpawnRandomEnemy()
+    private IEnumerator SpawnRandomEnemy()
     {
-        if (allSpawnedEnemies.Count > 9)
+        while (!mainPlayer.isDead)
         {
-            return;
+            if (allSpawnedEnemies.Count >= 11)
+            {
+                yield return new WaitForSeconds(3f);
+
+                continue;
+            }
+
+            var amountOfIndexes = possibleEnemyPrefabs.Length;
+            var randomIndex = Random.Range(0, amountOfIndexes);
+            var enemy = Instantiate(possibleEnemyPrefabs[randomIndex]);
+            allSpawnedEnemies.Add(enemy);
+
+            var amountOfSpawnPoints = possibleSpawnPoints.Length;
+            var randomSpawnPointIndex = Random.Range(0, amountOfSpawnPoints);
+            var spawnPoint = possibleSpawnPoints[randomSpawnPointIndex];
+
+            enemy.transform.position = spawnPoint.position;
+
+            yield return new WaitForSeconds(3f);
         }
 
-        var amountOfIndexes = possibleEnemyPrefabs.Length;
-        var randomIndex = Random.Range(0, amountOfIndexes);
-        var enemy = Instantiate(possibleEnemyPrefabs[randomIndex]);
-        allSpawnedEnemies.Add(enemy);
+        yield return new WaitForSeconds(0f);
     }
 }

@@ -4,14 +4,15 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] protected Rigidbody2D rb;
+    public bool isDead;
     public Health health;
 
     protected Vector2 moveDirection;
-    private bool isDead;
 
     protected virtual void Start()
     {
         health = new Health(100);
+        isDead = false;
         Debug.Log($"Character Health: {health.GetHealthPoints()}");
     }
 
