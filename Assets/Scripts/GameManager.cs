@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
 
     private void SpawnRandomEnemy()
     {
+        if (allSpawnedEnemies.Count > 9)
+        {
+            return;
+        }
+
         var amountOfIndexes = possibleEnemyPrefabs.Length;
         var randomIndex = Random.Range(0, amountOfIndexes);
         var enemy = Instantiate(possibleEnemyPrefabs[randomIndex]);
