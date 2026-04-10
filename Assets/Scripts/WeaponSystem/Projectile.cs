@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float projectileSpeed;
+    [SerializeField] private float damage;
 
     private void Start()
     {
@@ -12,6 +13,14 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.rigidbody)
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                other.gameObject.GetComponent<Enemy>().health.DecreaseHealth(damage);
+            }
+        }
+
         Destroy(gameObject);
     }
 }

@@ -1,5 +1,8 @@
+using System;
+
 public class Health
 {
+    public Action OnHealthZero;
     private float healthPoints;
 
     public Health(float value)
@@ -20,5 +23,9 @@ public class Health
     public void DecreaseHealth(float amount)
     {
         healthPoints -= amount;
+        if (GetHealthPoints() <= 0)
+        {
+            OnHealthZero?.Invoke();
+        }
     }
 }

@@ -49,4 +49,14 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(0f);
     }
+
+    public void EnemyKilled(Enemy enemy)
+    {
+        allSpawnedEnemies.Remove(enemy);
+
+        // TODO
+        // spawn "pick up"
+        // increase score
+        // play sound
+    }
 }
