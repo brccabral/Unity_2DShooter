@@ -4,7 +4,7 @@ public class MeleeWeapon : Weapon
 {
     private float range;
 
-    public MeleeWeapon(float newDamage, float newRange) : base(newDamage)
+    public MeleeWeapon(float newDamage, GameManager newGameManager, float newRange) : base(newDamage, newGameManager)
     {
         range = newRange;
     }

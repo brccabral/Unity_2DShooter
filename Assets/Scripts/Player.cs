@@ -5,6 +5,7 @@ public class Player : Character, IDash
     [SerializeField] private Vector2 mousePosition;
     [SerializeField] private Transform weaponTip;
     [SerializeField] private Projectile projectilePrefab;
+    [SerializeField] private GameManager gameManager;
 
     private Weapon weaponOption1;
     private Weapon weaponOption2;
@@ -14,10 +15,10 @@ public class Player : Character, IDash
     {
         base.Start();
 
-        weaponOption1 = new RangedWeapon(2, 5, projectilePrefab, weaponTip);
+        weaponOption1 = new RangedWeapon(2, gameManager, 5, projectilePrefab, weaponTip);
         Debug.Log($"Damage: {weaponOption1.GetDamage()}");
 
-        weaponOption2 = new MeleeWeapon(4, 3);
+        weaponOption2 = new MeleeWeapon(4, gameManager, 3);
         Debug.Log($"Damage: {weaponOption2.GetDamage()}");
 
         EquipWeapon(weaponOption1);

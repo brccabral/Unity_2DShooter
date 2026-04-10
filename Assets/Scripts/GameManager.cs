@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Enemy> allSpawnedEnemies;
     [SerializeField] private Enemy[] possibleEnemyPrefabs;
     [SerializeField] private Transform[] possibleSpawnPoints;
+    [SerializeField] private Transform enemyHolder;
+    public Transform projectileHolder;
 
     public void Start()
     {
@@ -33,7 +35,7 @@ public class GameManager : MonoBehaviour
 
             var amountOfIndexes = possibleEnemyPrefabs.Length;
             var randomIndex = Random.Range(0, amountOfIndexes);
-            var enemy = Instantiate(possibleEnemyPrefabs[randomIndex]);
+            var enemy = Instantiate(possibleEnemyPrefabs[randomIndex], enemyHolder);
             allSpawnedEnemies.Add(enemy);
 
             var amountOfSpawnPoints = possibleSpawnPoints.Length;

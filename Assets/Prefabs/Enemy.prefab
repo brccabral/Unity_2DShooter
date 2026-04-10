@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   moveSpeed: 700
   rb: {fileID: 4766052134872707467}
+  isDead: 0
 --- !u!50 &4766052134872707467
 Rigidbody2D:
   serializedVersion: 5

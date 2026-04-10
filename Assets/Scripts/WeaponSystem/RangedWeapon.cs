@@ -8,10 +8,11 @@ public class RangedWeapon : Weapon
 
     public RangedWeapon(
         float newDamage,
+        GameManager newGameManager,
         float newFireRate,
         Projectile newProjectPrefab,
         Transform newWeaponTip
-    ) : base(newDamage)
+    ) : base(newDamage, newGameManager)
     {
         fireRate = newFireRate;
         projectPrefab = newProjectPrefab;
@@ -20,6 +21,7 @@ public class RangedWeapon : Weapon
 
     public override void Use()
     {
-        Object.Instantiate(projectPrefab, weaponTip.position, weaponTip.rotation);
+        var projectile = Object.Instantiate(projectPrefab, weaponTip.position, weaponTip.rotation);
+        projectile.transform.SetParent(gameManager.projectileHolder);
     }
 }
