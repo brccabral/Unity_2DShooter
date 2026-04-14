@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform[] possibleSpawnPoints;
     [SerializeField] private Transform enemyHolder;
     public Transform projectileHolder;
+    [SerializeField] private int currentScore;
 
     public void Start()
     {
@@ -54,9 +55,16 @@ public class GameManager : MonoBehaviour
     {
         allSpawnedEnemies.Remove(enemy);
 
+        currentScore += enemy.score;
+
         // TODO
         // spawn "pick up"
         // increase score
         // play sound
+    }
+    
+    public int GetCurrentScore()
+    {
+        return currentScore;
     }
 }

@@ -191,6 +191,7 @@ MonoBehaviour:
   moveSpeed: 700
   rb: {fileID: 4766052134872707467}
   isDead: 0
+  score: 10
 --- !u!50 &4766052134872707467
 Rigidbody2D:
   serializedVersion: 5

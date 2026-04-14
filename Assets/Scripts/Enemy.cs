@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    public int score;
     private Transform playerTargetTransform;
 
     protected override void Start()
