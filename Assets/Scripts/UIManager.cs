@@ -19,6 +19,6 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         scoreText.text = localGameManager.GetCurrentScore().ToString();
-        healthText.text = $"HEALTH: {localPlayer.health.GetHealthPoints()} %";
+        healthText.text = $"HEALTH: {localPlayer.health.GetHealthPoints():F1} %";
     }
 }
