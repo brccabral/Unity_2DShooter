@@ -22,6 +22,8 @@ public class Player : Character, IDash
         Debug.Log($"Damage: {weaponOption2.GetDamage()}");
 
         EquipWeapon(weaponOption1);
+
+        health.OnHealthZero += EndGame;
     }
 
     private void Update()
@@ -66,5 +68,11 @@ public class Player : Character, IDash
     {
         base.Attack();
         currentWeapon.Use();
+    }
+
+    private void EndGame()
+    {
+        gameManager.RegisterHighScore();
+        Destroy(gameObject);
     }
 }

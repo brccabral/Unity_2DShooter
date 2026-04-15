@@ -17,6 +17,14 @@ public class Enemy : Character
 
     public virtual void Update()
     {
+        if (!playerTargetTransform)
+        {
+            moveDirection = Vector2.zero;
+            moveSpeed = 0;
+
+            return;
+        }
+
         moveDirection = (playerTargetTransform.transform.position - transform.position).normalized;
         transform.up = moveDirection;
 

@@ -2,8 +2,9 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
+    [SerializeField] protected float moveSpeed;
     [SerializeField] protected Rigidbody2D rb;
+
     public bool isDead;
     public Health health;
 

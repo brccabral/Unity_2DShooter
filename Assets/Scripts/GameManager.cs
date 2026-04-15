@@ -62,9 +62,17 @@ public class GameManager : MonoBehaviour
         // increase score
         // play sound
     }
-    
+
     public int GetCurrentScore()
     {
         return currentScore;
+    }
+
+    public void RegisterHighScore()
+    {
+        if (currentScore > PlayerPrefs.GetInt("HighestScore"))
+        {
+            PlayerPrefs.SetInt("HighestScore", currentScore);
+        }
     }
 }

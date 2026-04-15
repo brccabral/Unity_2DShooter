@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class MeleeWeapon : Weapon
 {
     private float range;
@@ -11,6 +9,6 @@ public class MeleeWeapon : Weapon
 
     public override void Use()
     {
-        Debug.Log("Slash");
+        // Debug.Log("Slash");
     }
 }
