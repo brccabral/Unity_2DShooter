@@ -4,8 +4,13 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float projectileSpeed;
-    [SerializeField] private float damage;
+    private float damage;
 
+    public void SetDamage(float value)
+    {
+        damage = value;
+    }
+    
     private void Start()
     {
         rb.linearVelocity = transform.up * projectileSpeed;

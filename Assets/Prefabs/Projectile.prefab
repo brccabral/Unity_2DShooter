@@ -75,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   rb: {fileID: 4747281586240932885}
   projectileSpeed: 5
-  damage: 50
+  damage: 20
 --- !u!1 &5155354702652075689
 GameObject:
   m_ObjectHideFlags: 0
