@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c6e3efe273b4942950cc67ef757946, type: 3}
+  m_Name: Rifle
+  m_EditorClassIdentifier: Assembly-CSharp::RangedWeapon
+  damage: 15
+  projectPrefab: {fileID: 2759300926692055513, guid: 1b0d3992a60105841a1c2e04c0b52344, type: 3}
+  fireRate: 15

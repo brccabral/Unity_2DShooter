@@ -199,9 +199,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   moveSpeed: 2000
   rb: {fileID: 1187987568974752183}
+  isDead: 0
   mousePosition: {x: 0, y: 0}
   weaponTip: {fileID: 870300838322056222}
   projectilePrefab: {fileID: 4548934945420087159, guid: dd76f720caad6d54097d1296f7f0e1a6, type: 3}
+  gameManager: {fileID: 0}
+  weaponOption1: {fileID: 11400000, guid: 036495135e1859c48b7d2f5ffdfce683, type: 2}
+  weaponOption2: {fileID: 11400000, guid: c5884a7c8e583c446a5f8d3ecd50ee73, type: 2}
 --- !u!1 &5090520699796605929
 GameObject:
   m_ObjectHideFlags: 0

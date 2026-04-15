@@ -1,13 +1,11 @@
+using System;
+using UnityEngine;
+
 public class MeleeWeapon : Weapon
 {
-    private float range;
+    [SerializeField] private float range;
 
-    public MeleeWeapon(float newDamage, GameManager newGameManager, float newRange) : base(newDamage, newGameManager)
-    {
-        range = newRange;
-    }
-
-    public override void Use()
+    public override void Use(Transform weaponTip, GameManager gameManager)
     {
         // Debug.Log("Slash");
     }

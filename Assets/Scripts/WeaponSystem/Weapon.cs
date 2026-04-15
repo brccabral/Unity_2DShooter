@@ -1,15 +1,10 @@
-public abstract class Weapon
+using UnityEngine;
+
+public abstract class Weapon : ScriptableObject
 {
-    private readonly float damage;
-    protected GameManager gameManager;
+    [SerializeField] protected float damage;
 
-    protected Weapon(float newDamage, GameManager newGameManager)
-    {
-        damage = newDamage;
-        gameManager = newGameManager;
-    }
-
-    public abstract void Use();
+    public abstract void Use(Transform weaponTip, GameManager gameManager);
 
     public float GetDamage()
     {
