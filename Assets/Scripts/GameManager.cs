@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform enemyHolder;
     public Transform projectileHolder;
     [SerializeField] private int currentScore;
+    
+    [SerializeField] private Pickup[] possiblePickupsPrefabs;
+    [SerializeField] private float chanceSpawnPickup;
 
     public void Start()
     {
@@ -57,8 +60,13 @@ public class GameManager : MonoBehaviour
 
         currentScore += enemy.score;
 
-        // TODO
         // spawn "pick up"
+        if(Random.Range(0, 100) < chanceSpawnPickup)
+        {
+            SpawnRandomPickup(enemy.transform.position);
+        }
+
+        // TODO
         // increase score
         // play sound
     }
@@ -74,5 +82,11 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighestScore", currentScore);
         }
+    }
+
+    private void SpawnRandomPickup(Vector2 position)
+    {
+        var randomIndex = Random.Range(0, possiblePickupsPrefabs.Length);
+        var pickup = Instantiate(possiblePickupsPrefabs[randomIndex], position, Quaternion.identity);
     }
 }
