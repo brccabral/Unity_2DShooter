@@ -6,13 +6,19 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Player mainPlayer;
 
+    [Space(10)]
+    [SerializeField] private int currentScore;
+
+    [Space(10)]
+    [SerializeField] private Transform enemyHolder;
+    public Transform projectileHolder;
+
+    [Header("Enemies")]
     [SerializeField] private List<Enemy> allSpawnedEnemies;
     [SerializeField] private Enemy[] possibleEnemyPrefabs;
     [SerializeField] private Transform[] possibleSpawnPoints;
-    [SerializeField] private Transform enemyHolder;
-    public Transform projectileHolder;
-    [SerializeField] private int currentScore;
-    
+
+    [Header("Pickups")]
     [SerializeField] private Pickup[] possiblePickupsPrefabs;
     [SerializeField] private float chanceSpawnPickup;
 
@@ -61,7 +67,7 @@ public class GameManager : MonoBehaviour
         currentScore += enemy.score;
 
         // spawn "pick up"
-        if(Random.Range(0, 100) < chanceSpawnPickup)
+        if (Random.Range(0, 100) < chanceSpawnPickup)
         {
             SpawnRandomPickup(enemy.transform.position);
         }
