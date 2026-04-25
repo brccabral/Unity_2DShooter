@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player mainPlayer;
 
     [SerializeField] [Space(10)] private int currentScore;
+    private int highestScore;
 
     [SerializeField] [Space(10)] private Transform enemyHolder;
     public Transform projectileHolder;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        highestScore = PlayerPrefs.GetInt("HighestScore");
         StartCoroutine(SpawnRandomEnemy());
     }
 
@@ -71,12 +73,18 @@ public class GameManager : MonoBehaviour
     {
         return currentScore;
     }
+    
+    public int GetHighestScore()
+    {
+        return highestScore;
+    }
 
     public void RegisterHighScore()
     {
         if (currentScore > PlayerPrefs.GetInt("HighestScore"))
         {
             PlayerPrefs.SetInt("HighestScore", currentScore);
+            highestScore = currentScore;
         }
     }
 
