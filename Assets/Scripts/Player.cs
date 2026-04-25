@@ -27,6 +27,7 @@ public class Player : Character, IDash
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Rotate(mousePosition);
+        Move();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

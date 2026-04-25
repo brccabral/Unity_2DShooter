@@ -17,14 +17,9 @@ public abstract class Character : MonoBehaviour
         Debug.Log($"Character Health: {health.GetHealthPoints()}");
     }
 
-    protected void FixedUpdate()
+    protected void Move()
     {
-        Move();
-    }
-
-    private void Move()
-    {
-        rb.AddForce(moveDirection * (moveSpeed * Time.fixedDeltaTime));
+        rb.AddForce(moveDirection * (moveSpeed * Time.deltaTime));
     }
 
     protected void Rotate(Vector3 rotationTarget)

@@ -5,6 +5,7 @@ public class Enemy : Character
     public int score;
     [SerializeField] private float attackDelay;
     [SerializeField] private float damage;
+    [SerializeField] private float distanceToAttack;
     private Player playerTargetTransform;
     private float attackTimer;
 
@@ -29,9 +30,13 @@ public class Enemy : Character
         transform.up = moveDirection;
 
         attackTimer += Time.deltaTime;
-        if (Vector2.Distance(playerTargetTransform.transform.position, transform.position) < 2f)
+        if (Vector2.Distance(playerTargetTransform.transform.position, transform.position) < distanceToAttack)
         {
             Attack();
+        }
+        else
+        {
+            Move();
         }
     }
 
