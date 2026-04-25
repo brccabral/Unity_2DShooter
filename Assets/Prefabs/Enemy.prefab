@@ -151,8 +151,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3397271077472438469}
-  - component: {fileID: 9037902664930870985}
-  - component: {fileID: 4766052134872707467}
+  - component: {fileID: 2614714011917338986}
+  - component: {fileID: 2299004838805474926}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -169,32 +169,14 @@ Transform:
   m_GameObject: {fileID: 6732976910065872444}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.51295, y: -0.23674, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7203281143247708117}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9037902664930870985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6732976910065872444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317ba549cf168864cbc66d0f2d58e904, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  moveSpeed: 700
-  rb: {fileID: 4766052134872707467}
-  isDead: 0
-  score: 10
-  attackDelay: 2
-  damage: 1
---- !u!50 &4766052134872707467
+--- !u!50 &2614714011917338986
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -221,3 +203,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2299004838805474926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732976910065872444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 317ba549cf168864cbc66d0f2d58e904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  moveSpeed: 700
+  rb: {fileID: 2614714011917338986}
+  isDead: 0
+  score: 10
+  attackDelay: 2
+  damage: 1
+  distanceToAttack: 2

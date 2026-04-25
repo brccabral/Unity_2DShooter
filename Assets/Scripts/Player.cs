@@ -61,7 +61,6 @@ public class Player : Character, IDash
 
     protected override void Attack()
     {
-        base.Attack();
         currentWeapon.Use(weaponTip, gameManager);
     }
 

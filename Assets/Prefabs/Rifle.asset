@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: Assembly-CSharp::RangedWeapon
   damage: 15
+  cooldown: 5
   projectPrefab: {fileID: 2759300926692055513, guid: 1b0d3992a60105841a1c2e04c0b52344, type: 3}
-  fireRate: 15

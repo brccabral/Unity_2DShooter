@@ -4,8 +4,6 @@ using UnityEngine;
 public class RangedWeapon : Weapon
 {
     [SerializeField] private Projectile projectPrefab;
-    [SerializeField] private float fireRate;
-    [SerializeField] private float damage;
 
     public override void Use(Transform weaponTip, GameManager gameManager)
     {

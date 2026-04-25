@@ -20,13 +20,21 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5754717
       objectReference: {fileID: 0}
+    - target: {fileID: 2299004838805474926, guid: bcdd91a1336d82845905a8e00c8a3b30, type: 3}
+      propertyPath: score
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299004838805474926, guid: bcdd91a1336d82845905a8e00c8a3b30, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3397271077472438469, guid: bcdd91a1336d82845905a8e00c8a3b30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3397271077472438469, guid: bcdd91a1336d82845905a8e00c8a3b30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3397271077472438469, guid: bcdd91a1336d82845905a8e00c8a3b30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -60,9 +68,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4766052134872707467, guid: bcdd91a1336d82845905a8e00c8a3b30, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6732976910065872444, guid: bcdd91a1336d82845905a8e00c8a3b30, type: 3}
       propertyPath: m_Name
-      value: Enemy (2) Variant
+      value: Enemy Type B
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
