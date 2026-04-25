@@ -6,29 +6,20 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Player mainPlayer;
 
-    [Space(10)]
-    [SerializeField] private int currentScore;
+    [SerializeField] [Space(10)] private int currentScore;
 
-    [Space(10)]
-    [SerializeField] private Transform enemyHolder;
+    [SerializeField] [Space(10)] private Transform enemyHolder;
     public Transform projectileHolder;
 
-    [Header("Enemies")]
-    [SerializeField] private List<Enemy> allSpawnedEnemies;
+    [SerializeField] [Header("Enemies")] private List<Enemy> allSpawnedEnemies;
     [SerializeField] private Enemy[] possibleEnemyPrefabs;
     [SerializeField] private Transform[] possibleSpawnPoints;
 
-    [Header("Pickups")]
-    [SerializeField] private Pickup[] possiblePickupsPrefabs;
+    [SerializeField] [Header("Pickups")] private Pickup[] possiblePickupsPrefabs;
     [SerializeField] private float chanceSpawnPickup;
 
     public void Start()
     {
-        if (mainPlayer.GetComponent<IDash>() != null)
-        {
-            Debug.Log("Player has Dash");
-        }
-
         StartCoroutine(SpawnRandomEnemy());
     }
 
@@ -73,7 +64,6 @@ public class GameManager : MonoBehaviour
         }
 
         // TODO
-        // increase score
         // play sound
     }
 
