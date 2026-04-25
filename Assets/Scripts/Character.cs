@@ -14,7 +14,6 @@ public abstract class Character : MonoBehaviour
     {
         health = new Health(100);
         isDead = false;
-        Debug.Log($"Character Health: {health.GetHealthPoints()}");
     }
 
     protected void Move()

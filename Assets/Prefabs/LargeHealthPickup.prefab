@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1544522368296302005
+--- !u!1001 &5537964704127882544
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -13,12 +13,16 @@ PrefabInstance:
       value: LargeHealthPickup
       objectReference: {fileID: 0}
     - target: {fileID: 5928244360875166473, guid: 3aa4826bd5a74d244af87374407813dd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.47058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 5928244360875166473, guid: 3aa4826bd5a74d244af87374407813dd, type: 3}
       propertyPath: m_Color.g
-      value: 0.80399525
+      value: 0.47058824
       objectReference: {fileID: 0}
     - target: {fileID: 5928244360875166473, guid: 3aa4826bd5a74d244af87374407813dd, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.47058824
       objectReference: {fileID: 0}
     - target: {fileID: 7544514376105158272, guid: 3aa4826bd5a74d244af87374407813dd, type: 3}
       propertyPath: m_LocalPosition.x

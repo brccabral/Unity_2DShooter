@@ -287,7 +287,7 @@ MonoBehaviour:
   - {fileID: 455316224}
   possiblePickupsPrefabs:
   - {fileID: 7601851009760379653, guid: 3aa4826bd5a74d244af87374407813dd, type: 3}
-  - {fileID: 8939660510513886896, guid: b581e820bd062324a820f1612467d2be, type: 3}
+  - {fileID: 2712854421217728053, guid: b581e820bd062324a820f1612467d2be, type: 3}
   chanceSpawnPickup: 30
 --- !u!4 &360118331
 Transform:
