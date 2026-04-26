@@ -60,6 +60,18 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.5839791
       objectReference: {fileID: 0}
+    - target: {fileID: 3561978775640733507, guid: dd76f720caad6d54097d1296f7f0e1a6, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.015686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561978775640733507, guid: dd76f720caad6d54097d1296f7f0e1a6, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.58431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561978775640733507, guid: dd76f720caad6d54097d1296f7f0e1a6, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4548934945420087159, guid: dd76f720caad6d54097d1296f7f0e1a6, type: 3}
       propertyPath: damage
       value: 50
