@@ -4,6 +4,7 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected Rigidbody2D rb;
+    [SerializeField] protected GameObject dieEffectPrefab;
 
     public bool isDead;
     public Health health;

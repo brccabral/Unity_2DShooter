@@ -52,6 +52,7 @@ public class Enemy : Character
     private void Die()
     {
         FindAnyObjectByType<GameManager>().EnemyKilled(this);
+        Instantiate(dieEffectPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
