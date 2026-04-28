@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: SMG
   m_EditorClassIdentifier: Assembly-CSharp::RangedWeapon
   damage: 8
-  cooldown: 1
+  cooldown: 0.2
+  useSound: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
   projectPrefab: {fileID: 4548934945420087159, guid: dd76f720caad6d54097d1296f7f0e1a6, type: 3}
