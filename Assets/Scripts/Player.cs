@@ -8,6 +8,7 @@ public class Player : Character, IDash
 
     [SerializeField] private Weapon weaponOption1;
     [SerializeField] private Weapon weaponOption2;
+    [SerializeField] private float shootCountdown;
     private Weapon currentWeapon;
 
     protected override void Start()
@@ -33,9 +34,16 @@ public class Player : Character, IDash
             Dash();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (shootCountdown <= 0)
         {
-            Attack();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Attack();
+            }
+        }
+        else
+        {
+            shootCountdown -= Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -61,6 +69,7 @@ public class Player : Character, IDash
     protected override void Attack()
     {
         currentWeapon.Use(weaponTip, gameManager);
+        shootCountdown = currentWeapon.GetCooldown();
     }
 
     private void EndGame()
