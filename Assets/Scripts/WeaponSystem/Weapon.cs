@@ -6,7 +6,7 @@ public abstract class Weapon : ScriptableObject
     [SerializeField] private float cooldown;
     [SerializeField] protected AudioClip useSound;
 
-    public abstract void Use(Transform weaponTip, GameManager gameManager);
+    public abstract void Use(Transform weaponTip, GameManager gameManager, string sourceTag);
 
     public float GetCooldown()
     {

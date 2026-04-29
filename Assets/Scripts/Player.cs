@@ -67,7 +67,7 @@ public class Player : Character, IDash
 
     protected override void Attack()
     {
-        currentWeapon.Use(weaponTip, gameManager);
+        currentWeapon.Use(weaponTip, gameManager, tag);
         shootCountdown = currentWeapon.GetCooldown();
     }
 

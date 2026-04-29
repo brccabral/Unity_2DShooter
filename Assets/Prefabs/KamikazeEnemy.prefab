@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1793159640051834055}
   m_Layer: 0
   m_Name: KamikazeEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,6 @@ MonoBehaviour:
   moveSpeed: 20
   rb: {fileID: 5622454530296038425}
   dieEffectPrefab: {fileID: 5279958490423163089, guid: 18c15ef6af97fab47877abd11b7accc5, type: 3}
-  isDead: 0
   score: 30
   attackDelay: 0
   damage: 70

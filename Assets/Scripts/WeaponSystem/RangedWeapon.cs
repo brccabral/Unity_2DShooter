@@ -6,11 +6,12 @@ public class RangedWeapon : Weapon
     [SerializeField] private Projectile projectPrefab;
     private AudioManager audioManager;
 
-    public override void Use(Transform weaponTip, GameManager gameManager)
+    public override void Use(Transform weaponTip, GameManager gameManager, string sourceTag)
     {
         var projectile = Instantiate(projectPrefab, weaponTip.position, weaponTip.rotation);
         projectile.SetDamage(damage);
         projectile.transform.SetParent(gameManager.projectileHolder);
+        projectile.SetSourceTag(sourceTag);
 
         if (!audioManager)
         {

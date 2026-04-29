@@ -5,12 +5,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float projectileSpeed;
     private float damage;
+    private string sourceTag;
 
-    public void SetDamage(float value)
-    {
-        damage = value;
-    }
-    
     private void Start()
     {
         rb.linearVelocity = transform.up * projectileSpeed;
@@ -20,12 +16,22 @@ public class Projectile : MonoBehaviour
     {
         if (other.rigidbody)
         {
-            if (other.gameObject.CompareTag("Enemy"))
+            if (!other.gameObject.CompareTag(sourceTag))
             {
-                other.gameObject.GetComponent<Enemy>().health.DecreaseHealth(damage);
+                other.gameObject.GetComponent<Character>().health.DecreaseHealth(damage);
             }
         }
 
         Destroy(gameObject);
+    }
+
+    public void SetDamage(float value)
+    {
+        damage = value;
+    }
+
+    public void SetSourceTag(string value)
+    {
+        sourceTag = value;
     }
 }

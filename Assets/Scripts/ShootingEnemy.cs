@@ -16,7 +16,7 @@ public class ShootingEnemy : Enemy
     {
         if (canShoot)
         {
-            currentWeapon.Use(weaponTip, gameManager);
+            currentWeapon.Use(weaponTip, gameManager, tag);
             canShoot = false;
             Invoke(nameof(allowShoot), currentWeapon.GetCooldown());
         }
