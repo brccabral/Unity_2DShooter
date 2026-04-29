@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject gamePlayUI;
     [SerializeField] private GameObject gameOverUI;
+
+    [SerializeField] private TextMeshProUGUI finalScoreText;
     private List<Enemy> allSpawnedEnemies;
     private List<Pickup> allSpawnedPickups;
     private Player player;
@@ -92,7 +95,10 @@ public class GameManager : MonoBehaviour
         FindAnyObjectByType<UIManager>().SetPlayer(null);
         RegisterHighScore();
         gamePlayUI.SetActive(false);
+
+        finalScoreText.text = $"Your final score: {currentScore}";
         gameOverUI.SetActive(true);
+
         foreach (var enemy in allSpawnedEnemies)
         {
             Destroy(enemy.gameObject);

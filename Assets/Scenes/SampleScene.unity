@@ -330,6 +330,7 @@ MonoBehaviour:
   chanceSpawnPickup: 30
   gamePlayUI: {fileID: 117860693}
   gameOverUI: {fileID: 579890857}
+  finalScoreText: {fileID: 1718729331}
 --- !u!4 &360118331
 Transform:
   m_ObjectHideFlags: 0
