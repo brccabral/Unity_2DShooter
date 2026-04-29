@@ -16,9 +16,12 @@ public class Projectile : MonoBehaviour
     {
         if (other.rigidbody)
         {
-            if (!other.gameObject.CompareTag(sourceTag))
+            if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Enemy"))
             {
-                other.gameObject.GetComponent<Character>().health.DecreaseHealth(damage);
+                if (!other.gameObject.CompareTag(sourceTag))
+                {
+                    other.gameObject.GetComponent<Character>().health.DecreaseHealth(damage);
+                }
             }
         }
 
