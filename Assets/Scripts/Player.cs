@@ -4,7 +4,6 @@ public class Player : Character, IDash
 {
     [SerializeField] private Vector2 mousePosition;
     [SerializeField] private Transform weaponTip;
-    [SerializeField] private GameManager gameManager;
 
     [SerializeField] private Weapon weaponOption1;
     [SerializeField] private Weapon weaponOption2;

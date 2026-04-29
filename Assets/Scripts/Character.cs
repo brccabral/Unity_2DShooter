@@ -10,9 +10,11 @@ public abstract class Character : MonoBehaviour
     public Health health;
 
     protected Vector2 moveDirection;
+    protected GameManager gameManager;
 
     protected virtual void Start()
     {
+        gameManager = FindAnyObjectByType<GameManager>();
         health = new Health(100);
         isDead = false;
     }

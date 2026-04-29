@@ -4,9 +4,9 @@ public class Enemy : Character
 {
     public int score;
     [SerializeField] private float attackDelay;
-    [SerializeField] private float damage;
+    [SerializeField] protected float damage;
     [SerializeField] private float distanceToAttack;
-    private Player playerTargetTransform;
+    protected Player playerTargetTransform;
     private float attackTimer;
 
     protected override void Start()

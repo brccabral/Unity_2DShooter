@@ -4,13 +4,11 @@ public class ShootingEnemy : Enemy
 {
     [SerializeField] private Weapon currentWeapon;
     [SerializeField] private Transform weaponTip;
-    private GameManager gameManager;
     private bool canShoot = true;
 
     protected override void Start()
     {
         base.Start();
-        gameManager = FindAnyObjectByType<GameManager>();
         canShoot = true;
     }
 
