@@ -6,8 +6,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] protected GameObject dieEffectPrefab;
 
-    public bool isDead;
-    public Health health;
+    public Health health = new(100);
 
     protected Vector2 moveDirection;
     protected GameManager gameManager;
@@ -15,8 +14,6 @@ public abstract class Character : MonoBehaviour
     protected virtual void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
-        health = new Health(100);
-        isDead = false;
     }
 
     protected void Move()

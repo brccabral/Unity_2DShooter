@@ -4,6 +4,7 @@ public class Pickup : MonoBehaviour
 {
     [SerializeField] private AudioClip pickupSound;
     private AudioManager _audioManager;
+    private GameManager _gameManager;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,9 +19,14 @@ public class Pickup : MonoBehaviour
         _audioManager = audioManager;
     }
 
+    public void SetGameManager(GameManager gameManager)
+    {
+        _gameManager = gameManager;
+    }
+
     protected virtual void CollectPickup(Character receiver)
     {
         _audioManager.PlayPowerUpSound(pickupSound);
-        Destroy(gameObject);
+        _gameManager.RemovePickup(this);
     }
 }

@@ -13,7 +13,6 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        localPlayer = FindAnyObjectByType<Player>();
         localGameManager = FindAnyObjectByType<GameManager>();
         highScoreText.text = localGameManager.GetHighestScore().ToString();
     }
@@ -22,8 +21,16 @@ public class UIManager : MonoBehaviour
     {
         scoreText.text = localGameManager.GetCurrentScore().ToString();
         highScoreText.text = localGameManager.GetHighestScore().ToString();
-        healthText.text = $"HEALTH: {localPlayer.health.GetHealthPoints():F1} %";
-        healthText.color = Color.Lerp(Color.red, Color.green,
-            Math.Clamp(localPlayer.health.GetHealthPoints(), 0, 100) / 100f);
+        if (localPlayer)
+        {
+            healthText.text = $"HEALTH: {localPlayer.health.GetHealthPoints():F1} %";
+            healthText.color = Color.Lerp(Color.red, Color.green,
+                Math.Clamp(localPlayer.health.GetHealthPoints(), 0, 100) / 100f);
+        }
+    }
+
+    public void SetPlayer(Player player)
+    {
+        localPlayer = player;
     }
 }

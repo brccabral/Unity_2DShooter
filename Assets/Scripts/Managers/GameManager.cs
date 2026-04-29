@@ -4,32 +4,40 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Player mainPlayer;
+    [SerializeField] private Player playerPrefab;
 
     [SerializeField] [Space(10)] private int currentScore;
 
     [SerializeField] [Space(10)] private Transform enemyHolder;
     public Transform projectileHolder;
 
-    [SerializeField] [Header("Enemies")] private List<Enemy> allSpawnedEnemies;
-    [SerializeField] private Enemy[] possibleEnemyPrefabs;
+    [SerializeField] [Header("Enemies")] private Enemy[] possibleEnemyPrefabs;
     [SerializeField] private Transform[] possibleSpawnPoints;
 
     [SerializeField] [Header("Pickups")] private Pickup[] possiblePickupsPrefabs;
     [SerializeField] private float chanceSpawnPickup;
+
+    [SerializeField] private GameObject gamePlayUI;
+    [SerializeField] private GameObject gameOverUI;
+    private List<Enemy> allSpawnedEnemies;
+    private List<Pickup> allSpawnedPickups;
+    private Player player;
     private int highestScore;
     private AudioManager audioManager;
 
     public void Start()
     {
+        allSpawnedEnemies = new List<Enemy>();
+        allSpawnedPickups = new List<Pickup>();
+
         audioManager = FindAnyObjectByType<AudioManager>();
         highestScore = PlayerPrefs.GetInt("HighestScore");
-        StartCoroutine(SpawnRandomEnemy());
+        RestartGame();
     }
 
     private IEnumerator SpawnRandomEnemy()
     {
-        while (!mainPlayer.isDead)
+        while (player)
         {
             if (allSpawnedEnemies.Count >= 11)
             {
@@ -58,6 +66,7 @@ public class GameManager : MonoBehaviour
     public void EnemyKilled(Enemy enemy)
     {
         allSpawnedEnemies.Remove(enemy);
+        Destroy(enemy.gameObject);
 
         currentScore += enemy.score;
 
@@ -78,7 +87,37 @@ public class GameManager : MonoBehaviour
         return highestScore;
     }
 
-    public void RegisterHighScore()
+    public void GameOver()
+    {
+        FindAnyObjectByType<UIManager>().SetPlayer(null);
+        RegisterHighScore();
+        gamePlayUI.SetActive(false);
+        gameOverUI.SetActive(true);
+        foreach (var enemy in allSpawnedEnemies)
+        {
+            Destroy(enemy.gameObject);
+        }
+
+        foreach (var pickup in allSpawnedPickups)
+        {
+            Destroy(pickup.gameObject);
+        }
+
+        allSpawnedEnemies.Clear();
+        allSpawnedPickups.Clear();
+    }
+
+    public void RestartGame()
+    {
+        currentScore = 0;
+        player = Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        FindAnyObjectByType<UIManager>().SetPlayer(player);
+        gamePlayUI.SetActive(true);
+        gameOverUI.SetActive(false);
+        StartCoroutine(SpawnRandomEnemy());
+    }
+
+    private void RegisterHighScore()
     {
         if (currentScore > PlayerPrefs.GetInt("HighestScore"))
         {
@@ -92,5 +131,13 @@ public class GameManager : MonoBehaviour
         var randomIndex = Random.Range(0, possiblePickupsPrefabs.Length);
         var pickup = Instantiate(possiblePickupsPrefabs[randomIndex], position, Quaternion.identity);
         pickup.SetAudioManager(audioManager);
+        pickup.SetGameManager(this);
+        allSpawnedPickups.Add(pickup);
+    }
+
+    public void RemovePickup(Pickup pickup)
+    {
+        allSpawnedPickups.Remove(pickup);
+        Destroy(pickup.gameObject);
     }
 }

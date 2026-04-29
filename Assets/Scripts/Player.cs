@@ -73,7 +73,7 @@ public class Player : Character, IDash
 
     private void EndGame()
     {
-        gameManager.RegisterHighScore();
+        gameManager.GameOver();
         Instantiate(dieEffectPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
