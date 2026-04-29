@@ -4883,6 +4883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84b77b4ec87b1745b7e3e87bc30b4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthPickup
+  pickupSound: {fileID: 8300000, guid: 4057fd4de64f4ec42b5ad3cec2453685, type: 3}
   amount: 10
 --- !u!61 &2754016057919933796
 BoxCollider2D:

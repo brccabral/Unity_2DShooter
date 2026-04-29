@@ -11,8 +11,9 @@ public class AudioManager : MonoBehaviour
         shootingSource.PlayOneShot(shoot);
     }
 
-    public void PlayPowerUpSound()
+    public void PlayPowerUpSound(AudioClip powerUp)
     {
+        powerUpSource.PlayOneShot(powerUp);
     }
 
     public void PlayExplosionSound()

@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player mainPlayer;
 
     [SerializeField] [Space(10)] private int currentScore;
-    private int highestScore;
 
     [SerializeField] [Space(10)] private Transform enemyHolder;
     public Transform projectileHolder;
@@ -18,9 +17,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] [Header("Pickups")] private Pickup[] possiblePickupsPrefabs;
     [SerializeField] private float chanceSpawnPickup;
+    private int highestScore;
+    private AudioManager audioManager;
 
     public void Start()
     {
+        audioManager = FindAnyObjectByType<AudioManager>();
         highestScore = PlayerPrefs.GetInt("HighestScore");
         StartCoroutine(SpawnRandomEnemy());
     }
@@ -64,16 +66,13 @@ public class GameManager : MonoBehaviour
         {
             SpawnRandomPickup(enemy.transform.position);
         }
-
-        // TODO
-        // play sound
     }
 
     public int GetCurrentScore()
     {
         return currentScore;
     }
-    
+
     public int GetHighestScore()
     {
         return highestScore;
@@ -92,5 +91,6 @@ public class GameManager : MonoBehaviour
     {
         var randomIndex = Random.Range(0, possiblePickupsPrefabs.Length);
         var pickup = Instantiate(possiblePickupsPrefabs[randomIndex], position, Quaternion.identity);
+        pickup.SetAudioManager(audioManager);
     }
 }
