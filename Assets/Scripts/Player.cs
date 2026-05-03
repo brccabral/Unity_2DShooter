@@ -55,6 +55,14 @@ public class Player : Character, IDash
         }
     }
 
+    public void Reset()
+    {
+        health.SetHealthPoints(100);
+        transform.position = new Vector2(0, 0);
+        transform.rotation = Quaternion.identity;
+        gameObject.SetActive(true);
+    }
+
     public void Dash()
     {
         rb.AddForce(moveDirection * 1000);
@@ -75,6 +83,6 @@ public class Player : Character, IDash
     {
         gameManager.GameOver();
         Instantiate(dieEffectPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

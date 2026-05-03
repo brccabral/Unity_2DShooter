@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Player playerPrefab;
+    [SerializeField] private Player player;
 
     [SerializeField] [Space(10)] private int currentScore;
 
@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI finalScoreText;
     private List<Enemy> allSpawnedEnemies;
     private List<Pickup> allSpawnedPickups;
-    private Player player;
     private int highestScore;
     private AudioManager audioManager;
 
@@ -40,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnRandomEnemy()
     {
-        while (player)
+        while (player.isActiveAndEnabled)
         {
             if (allSpawnedEnemies.Count >= 11)
             {
@@ -92,7 +91,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        FindAnyObjectByType<UIManager>().SetPlayer(null);
         RegisterHighScore();
         gamePlayUI.SetActive(false);
 
@@ -116,8 +114,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         currentScore = 0;
-        player = Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        FindAnyObjectByType<UIManager>().SetPlayer(player);
+        player.Reset();
         gamePlayUI.SetActive(true);
         gameOverUI.SetActive(false);
         StartCoroutine(SpawnRandomEnemy());

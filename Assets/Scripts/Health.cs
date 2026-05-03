@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class Health
 {
@@ -27,5 +28,10 @@ public class Health
         {
             OnHealthZero?.Invoke();
         }
+    }
+
+    public void SetHealthPoints(float value)
+    {
+        healthPoints = value;
     }
 }

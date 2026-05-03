@@ -238,6 +238,8 @@ MonoBehaviour:
   scoreText: {fileID: 1043913052}
   highScoreText: {fileID: 1630941255}
   healthText: {fileID: 767979626}
+  localPlayer: {fileID: 1542805206}
+  localGameManager: {fileID: 360118330}
 --- !u!1 &117860693
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1c2b50a06ab0e469eed4eca5b45747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  playerPrefab: {fileID: 6061125945566500697, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+  player: {fileID: 1542805206}
   currentScore: 0
   enemyHolder: {fileID: 2063063500}
   projectileHolder: {fileID: 694468054}
@@ -2092,6 +2094,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2139752574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1542805206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6061125945566500697, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+  m_PrefabInstance: {fileID: 1853699712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693b1ed983c65a2469d37d80cb772a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1 &1579981453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2485,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805799340}
   m_CullTransparentMesh: 1
+--- !u!1001 &1853699712
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1728100333578438318, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
 --- !u!1 &1853939243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2978,3 +3048,4 @@ SceneRoots:
   - {fileID: 56964073}
   - {fileID: 1853939246}
   - {fileID: 2139752574}
+  - {fileID: 1853699712}
