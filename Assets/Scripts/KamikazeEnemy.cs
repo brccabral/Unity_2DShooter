@@ -2,7 +2,7 @@ public class KamikazeEnemy : Enemy
 {
     protected override void Attack()
     {
-        playerTargetTransform.health.DecreaseHealth(damage);
+        _player.health.DecreaseHealth(damage);
         health.DecreaseHealth(health.GetHealthPoints() + 1);
     }
 }

@@ -6,19 +6,18 @@ public class Enemy : Character
     [SerializeField] private float attackDelay;
     [SerializeField] protected float damage;
     [SerializeField] private float distanceToAttack;
-    protected Player playerTargetTransform;
+    protected Player _player;
     private float attackTimer;
 
     protected override void Start()
     {
         base.Start();
-        playerTargetTransform = FindAnyObjectByType<Player>();
         health.OnHealthZero += Die;
     }
 
     public virtual void Update()
     {
-        if (!playerTargetTransform)
+        if (!_player.isActiveAndEnabled)
         {
             moveDirection = Vector2.zero;
             moveSpeed = 0;
@@ -26,11 +25,11 @@ public class Enemy : Character
             return;
         }
 
-        moveDirection = (playerTargetTransform.transform.position - transform.position).normalized;
+        moveDirection = (_player.transform.position - transform.position).normalized;
         transform.up = moveDirection;
 
         attackTimer += Time.deltaTime;
-        if (Vector2.Distance(playerTargetTransform.transform.position, transform.position) < distanceToAttack)
+        if (Vector2.Distance(_player.transform.position, transform.position) < distanceToAttack)
         {
             Attack();
         }
@@ -44,7 +43,7 @@ public class Enemy : Character
     {
         if (attackTimer > attackDelay)
         {
-            playerTargetTransform.health.DecreaseHealth(damage);
+            _player.health.DecreaseHealth(damage);
             attackTimer = 0f;
         }
     }
@@ -55,8 +54,8 @@ public class Enemy : Character
         Instantiate(dieEffectPrefab, transform.position, Quaternion.identity);
     }
 
-    public void SetPlayerTarget(Player player)
+    public void SetPlayer(Player player)
     {
-        playerTargetTransform = player;
+        _player = player;
     }
 }

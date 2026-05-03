@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
             var amountOfIndexes = possibleEnemyPrefabs.Length;
             var randomIndex = Random.Range(0, amountOfIndexes);
             var enemy = Instantiate(possibleEnemyPrefabs[randomIndex], enemyHolder);
+            enemy.SetPlayer(player);
             allSpawnedEnemies.Add(enemy);
 
             var amountOfSpawnPoints = possibleSpawnPoints.Length;
