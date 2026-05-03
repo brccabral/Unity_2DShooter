@@ -7,6 +7,7 @@ public class Player : Character, IDash
 
     [SerializeField] private Weapon weaponOption1;
     [SerializeField] private Weapon weaponOption2;
+    [SerializeField] private Weapon weaponOption3;
     private float shootCountdown;
     private Weapon currentWeapon;
 
@@ -52,6 +53,10 @@ public class Player : Character, IDash
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             EquipWeapon(weaponOption2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            EquipWeapon(weaponOption3);
         }
     }
 

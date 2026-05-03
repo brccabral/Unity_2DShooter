@@ -114,7 +114,7 @@ MonoBehaviour:
   weaponTip: {fileID: 870300838322056222}
   weaponOption1: {fileID: 11400000, guid: 036495135e1859c48b7d2f5ffdfce683, type: 2}
   weaponOption2: {fileID: 11400000, guid: c5884a7c8e583c446a5f8d3ecd50ee73, type: 2}
-  shootCountdown: 0
+  weaponOption3: {fileID: 11400000, guid: 35ba19a1dddfd934bb9cf16a32ec5395, type: 2}
 --- !u!60 &4417817537060336809
 PolygonCollider2D:
   m_ObjectHideFlags: 0

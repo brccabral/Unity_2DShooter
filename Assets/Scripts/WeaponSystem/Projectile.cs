@@ -4,12 +4,23 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float projectileSpeed;
+    [SerializeField] private float projectileLifetime;
+    private float lifeTime;
     private float damage;
     private string sourceTag;
 
     private void Start()
     {
         rb.linearVelocity = transform.up * projectileSpeed;
+    }
+
+    private void Update()
+    {
+        lifeTime += Time.deltaTime;
+        if (lifeTime > projectileLifetime)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
