@@ -8,6 +8,7 @@ public class Player : Character, IDash
 
     private float shootCountdown;
     private Weapon currentWeapon;
+    private int nukesCount;
 
     protected override void Start()
     {
@@ -50,6 +51,7 @@ public class Player : Character, IDash
         transform.position = new Vector2(0, 0);
         transform.rotation = Quaternion.identity;
         gameObject.SetActive(true);
+        nukesCount = 0;
     }
 
     public void Dash()
@@ -76,5 +78,20 @@ public class Player : Character, IDash
         gameManager.GameOver();
         Instantiate(dieEffectPrefab, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
+    }
+
+    public void AddNuke()
+    {
+        if (nukesCount > 2)
+        {
+            return;
+        }
+
+        nukesCount++;
+    }
+
+    public int GetNukesCount()
+    {
+        return nukesCount;
     }
 }
