@@ -4,18 +4,14 @@ public class Player : Character, IDash
 {
     [SerializeField] private Vector2 mousePosition;
     [SerializeField] private Transform weaponTip;
+    [SerializeField] private Weapon initWeapon;
 
-    [SerializeField] private Weapon weaponOption1;
-    [SerializeField] private Weapon weaponOption2;
-    [SerializeField] private Weapon weaponOption3;
     private float shootCountdown;
     private Weapon currentWeapon;
 
     protected override void Start()
     {
         base.Start();
-
-        EquipWeapon(weaponOption1);
 
         health.OnHealthZero += EndGame;
     }
@@ -45,24 +41,12 @@ public class Player : Character, IDash
         {
             shootCountdown -= Time.deltaTime;
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            EquipWeapon(weaponOption1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            EquipWeapon(weaponOption2);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            EquipWeapon(weaponOption3);
-        }
     }
 
     public void Reset()
     {
         health.SetHealthPoints(maxHealth);
+        EquipWeapon(initWeapon);
         transform.position = new Vector2(0, 0);
         transform.rotation = Quaternion.identity;
         gameObject.SetActive(true);
@@ -80,8 +64,11 @@ public class Player : Character, IDash
 
     protected override void Attack()
     {
-        currentWeapon.Use(weaponTip, gameManager, tag);
-        shootCountdown = currentWeapon.GetCooldown();
+        if (currentWeapon)
+        {
+            currentWeapon.Use(weaponTip, gameManager, tag);
+            shootCountdown = currentWeapon.GetCooldown();
+        }
     }
 
     private void EndGame()

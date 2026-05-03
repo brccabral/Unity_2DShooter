@@ -329,6 +329,9 @@ MonoBehaviour:
   possiblePickupsPrefabs:
   - {fileID: 7601851009760379653, guid: 3aa4826bd5a74d244af87374407813dd, type: 3}
   - {fileID: 2712854421217728053, guid: b581e820bd062324a820f1612467d2be, type: 3}
+  - {fileID: 5398973216788290909, guid: 69699cd0f1d5a61459fb431086ac9230, type: 3}
+  - {fileID: 487922792178619316, guid: 0725cdd40264f70438a36265f3e7febd, type: 3}
+  - {fileID: 136885755436989496, guid: c348cd0e0b4c27344a7a110df6e2e43d, type: 3}
   chanceSpawnPickup: 30
   gamePlayUI: {fileID: 117860693}
   gameOverUI: {fileID: 579890857}
@@ -2497,6 +2500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6061125945566500697, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: currentWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 036495135e1859c48b7d2f5ffdfce683, type: 2}
     - target: {fileID: 6503620781922223047, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

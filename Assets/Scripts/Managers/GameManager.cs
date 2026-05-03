@@ -134,8 +134,6 @@ public class GameManager : MonoBehaviour
     {
         var randomIndex = Random.Range(0, possiblePickupsPrefabs.Length);
         var pickup = Instantiate(possiblePickupsPrefabs[randomIndex], position, Quaternion.identity);
-        pickup.SetAudioManager(audioManager);
-        pickup.SetGameManager(this);
         allSpawnedPickups.Add(pickup);
     }
 
