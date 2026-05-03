@@ -109,12 +109,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootingEnemy
   moveSpeed: 500
   rb: {fileID: 6883960218950695479}
-  isDead: 0
+  dieEffectPrefab: {fileID: 5279958490423163089, guid: 18c15ef6af97fab47877abd11b7accc5, type: 3}
+  maxHealth: 50
   score: 25
   attackDelay: 2
-  damage: 4
+  damage: 0
   distanceToAttack: 6
-  dieEffectPrefab: {fileID: 5279958490423163089, guid: 18c15ef6af97fab47877abd11b7accc5, type: 3}
   currentWeapon: {fileID: 11400000, guid: 036495135e1859c48b7d2f5ffdfce683, type: 2}
   weaponTip: {fileID: 1460775638849058021}
 --- !u!60 &2267677422769291912

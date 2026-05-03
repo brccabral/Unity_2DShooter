@@ -167,12 +167,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   moveSpeed: 700
   rb: {fileID: 2614714011917338986}
-  isDead: 0
+  dieEffectPrefab: {fileID: 5279958490423163089, guid: 18c15ef6af97fab47877abd11b7accc5, type: 3}
+  maxHealth: 20
   score: 10
   attackDelay: 2
   damage: 1
   distanceToAttack: 1
-  dieEffectPrefab: {fileID: 5279958490423163089, guid: 18c15ef6af97fab47877abd11b7accc5, type: 3}
 --- !u!60 &936352496820516138
 PolygonCollider2D:
   m_ObjectHideFlags: 0

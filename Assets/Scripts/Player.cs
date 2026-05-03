@@ -7,7 +7,7 @@ public class Player : Character, IDash
 
     [SerializeField] private Weapon weaponOption1;
     [SerializeField] private Weapon weaponOption2;
-    [SerializeField] private float shootCountdown;
+    private float shootCountdown;
     private Weapon currentWeapon;
 
     protected override void Start()
@@ -35,7 +35,7 @@ public class Player : Character, IDash
 
         if (shootCountdown <= 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 Attack();
             }
@@ -57,7 +57,7 @@ public class Player : Character, IDash
 
     public void Reset()
     {
-        health.SetHealthPoints(100);
+        health.SetHealthPoints(maxHealth);
         transform.position = new Vector2(0, 0);
         transform.rotation = Quaternion.identity;
         gameObject.SetActive(true);

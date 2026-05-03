@@ -113,6 +113,7 @@ MonoBehaviour:
   moveSpeed: 20
   rb: {fileID: 5622454530296038425}
   dieEffectPrefab: {fileID: 5279958490423163089, guid: 18c15ef6af97fab47877abd11b7accc5, type: 3}
+  maxHealth: 20
   score: 30
   attackDelay: 0
   damage: 40

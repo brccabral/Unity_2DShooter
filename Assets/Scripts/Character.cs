@@ -5,14 +5,16 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] protected GameObject dieEffectPrefab;
+    [SerializeField] protected float maxHealth;
 
-    public Health health = new(100);
+    public Health health = new(0);
 
     protected Vector2 moveDirection;
     protected GameManager gameManager;
 
     protected virtual void Start()
     {
+        health.SetHealthPoints(maxHealth);
         gameManager = FindAnyObjectByType<GameManager>();
     }
 
