@@ -42,6 +42,11 @@ public class Player : Character, IDash
         {
             shootCountdown -= Time.deltaTime;
         }
+
+        if (nukesCount > 0 && Input.GetMouseButtonDown(1))
+        {
+            UseNuke();
+        }
     }
 
     public void Reset()
@@ -93,5 +98,11 @@ public class Player : Character, IDash
     public int GetNukesCount()
     {
         return nukesCount;
+    }
+
+    private void UseNuke()
+    {
+        gameManager.Nuke();
+        nukesCount--;
     }
 }

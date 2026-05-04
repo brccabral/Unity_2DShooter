@@ -142,4 +142,19 @@ public class GameManager : MonoBehaviour
         allSpawnedPickups.Remove(pickup);
         Destroy(pickup.gameObject);
     }
+
+    public void Nuke()
+    {
+        for (var i = allSpawnedEnemies.Count - 1; i >= 0; i--)
+        {
+            allSpawnedEnemies[i].health.DecreaseHealth(allSpawnedEnemies[i].health.GetHealthPoints() + 1);
+        }
+
+        foreach (var pickup in allSpawnedPickups)
+        {
+            Destroy(pickup.gameObject);
+        }
+
+        allSpawnedPickups.Clear();
+    }
 }
