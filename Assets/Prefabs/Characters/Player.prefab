@@ -113,6 +113,7 @@ MonoBehaviour:
   mousePosition: {x: 0, y: 0}
   weaponTip: {fileID: 870300838322056222}
   initWeapon: {fileID: 11400000, guid: 036495135e1859c48b7d2f5ffdfce683, type: 2}
+  timerPrefab: {fileID: 2325494238825334652, guid: 7a6f3bff99dadaf4cb3689facc70484a, type: 3}
 --- !u!60 &4417817537060336809
 PolygonCollider2D:
   m_ObjectHideFlags: 0

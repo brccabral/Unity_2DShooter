@@ -2842,6 +2842,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6061125945566500697, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 2325494238825334652, guid: 7a6f3bff99dadaf4cb3689facc70484a, type: 3}
+    - target: {fileID: 6061125945566500697, guid: 0dc10846b6199374886f7701ee947e23, type: 3}
       propertyPath: currentWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 036495135e1859c48b7d2f5ffdfce683, type: 2}

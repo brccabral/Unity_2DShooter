@@ -5,6 +5,8 @@ public class Player : Character, IDash
     [SerializeField] private Vector2 mousePosition;
     [SerializeField] private Transform weaponTip;
     [SerializeField] private Weapon initWeapon;
+    [SerializeField] private Timer timerPrefab;
+    private Timer timer;
 
     private float shootCountdown;
     private Weapon currentWeapon;
@@ -46,6 +48,12 @@ public class Player : Character, IDash
         if (nukesCount > 0 && Input.GetMouseButtonDown(1))
         {
             UseNuke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            timer = Instantiate(timerPrefab, transform.position, Quaternion.identity);
+            timer.SetPlayerTransform(transform);
         }
     }
 
