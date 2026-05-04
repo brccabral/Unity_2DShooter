@@ -35,7 +35,7 @@ public class Player : Character, IDash
 
         if (shootCountdown <= 0)
         {
-            if (Input.GetMouseButton(0))
+            if ((timer && timer.GetTimeLeft() > 0 && Input.GetMouseButton(0)) || Input.GetMouseButtonDown(0))
             {
                 Attack();
             }
