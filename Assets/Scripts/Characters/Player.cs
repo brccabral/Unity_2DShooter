@@ -5,7 +5,6 @@ public class Player : Character, IDash
     [SerializeField] private Vector2 mousePosition;
     [SerializeField] private Transform weaponTip;
     [SerializeField] private Weapon initWeapon;
-    [SerializeField] private Timer timerPrefab;
     private Timer timer;
 
     private float shootCountdown;
@@ -49,12 +48,6 @@ public class Player : Character, IDash
         {
             UseNuke();
         }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            timer = Instantiate(timerPrefab, transform.position, Quaternion.identity);
-            timer.SetPlayerTransform(transform);
-        }
     }
 
     public void Reset()
@@ -89,6 +82,8 @@ public class Player : Character, IDash
     private void EndGame()
     {
         gameManager.GameOver();
+        Destroy(timer.gameObject);
+        timer = null;
         Instantiate(dieEffectPrefab, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
     }
@@ -112,5 +107,10 @@ public class Player : Character, IDash
     {
         gameManager.Nuke();
         nukesCount--;
+    }
+
+    public void SetTimer(Timer newTimer)
+    {
+        timer = newTimer;
     }
 }

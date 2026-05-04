@@ -490,6 +490,7 @@ MonoBehaviour:
   - {fileID: 487922792178619316, guid: 0725cdd40264f70438a36265f3e7febd, type: 3}
   - {fileID: 136885755436989496, guid: c348cd0e0b4c27344a7a110df6e2e43d, type: 3}
   - {fileID: 1870970803533824448, guid: a8a852f94eb046c4b91899f90878ae22, type: 3}
+  - {fileID: 4729459242643232012, guid: 7c670784d85c79c4c93ed364e41490d4, type: 3}
   chanceSpawnPickup: 30
   gamePlayUI: {fileID: 117860693}
   gameOverUI: {fileID: 579890857}
