@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class GameManager : MonoBehaviour
     private int highestScore;
     private AudioManager audioManager;
 
+    private float spawnRate = 3f;
+    private int maxEnemies = 11;
+    private float sceneTime;
+
     public void Start()
     {
         allSpawnedEnemies = new List<Enemy>();
@@ -37,13 +42,29 @@ public class GameManager : MonoBehaviour
         RestartGame();
     }
 
+    private void Update()
+    {
+        sceneTime += Time.deltaTime;
+    }
+
     private IEnumerator SpawnRandomEnemy()
     {
         while (player.isActiveAndEnabled)
         {
-            if (allSpawnedEnemies.Count >= 11)
+            if (sceneTime > 60 * 2)
             {
-                yield return new WaitForSeconds(3f);
+                spawnRate = 1f;
+                maxEnemies = 20;
+            }
+            else if (sceneTime > 60 * 1)
+            {
+                spawnRate = 2f;
+                maxEnemies = 15;
+            }
+
+            if (allSpawnedEnemies.Count >= maxEnemies)
+            {
+                yield return new WaitForSeconds(spawnRate);
 
                 continue;
             }
@@ -60,7 +81,7 @@ public class GameManager : MonoBehaviour
 
             enemy.transform.position = spawnPoint.position;
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(spawnRate);
         }
 
         yield return new WaitForSeconds(0f);
@@ -118,6 +139,9 @@ public class GameManager : MonoBehaviour
         player.Reset();
         gamePlayUI.SetActive(true);
         gameOverUI.SetActive(false);
+        spawnRate = 3f;
+        maxEnemies = 11;
+        sceneTime = 0;
         StartCoroutine(SpawnRandomEnemy());
     }
 
