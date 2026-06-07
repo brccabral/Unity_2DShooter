@@ -82,8 +82,12 @@ public class Player : Character, IDash
     private void EndGame()
     {
         gameManager.GameOver();
-        Destroy(timer.gameObject);
-        timer = null;
+        if (timer)
+        {
+            Destroy(timer.gameObject);
+            timer = null;
+        }
+
         Instantiate(dieEffectPrefab, transform.position, Quaternion.identity);
         gameObject.SetActive(false);
     }
